@@ -1,0 +1,452 @@
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap");
+
+:root {
+  --primary-color: #8b5a2b; /* Couleur Terre/Grès */
+  --bg-color: #fafafa;
+  --bg-secondary: #efebe4;
+  --text-color: #333333;
+  --text-light: #666666;
+  --font-title: "Lora", serif;
+  --font-text: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-text);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+  background-color: var(--bg-color);
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--primary-color);
+}
+
+.burger-menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-color);
+}
+
+/* --- LAYOUT GLOBAL --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 5%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+}
+
+/* --- HERO SECTION (Accueil) --- */
+.hero {
+  height: 80vh;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("assets/Photos site internet/nature.jpeg");
+  background-size: 100% 100%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* --- SECTIONS (Philosophie, Anagama, etc.) --- */
+.split-section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.split-section > * {
+  flex: 1;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.text-box {
+  background-color: #f0e9f2; /* Un beige pastel très doux et harmonieux */
+  padding: 3.5rem; /* Un peu plus d'espace intérieur pour l'aération */
+  border-radius: 15px; /* Bords arrondis pour la douceur */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); /* Une ombre très légère pour la profondeur */
+}
+
+/* --- GRILLES (Galerie) --- */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.grid-gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* --- CARROUSEL D'IMAGES --- */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* Force l'image à s'aligner parfaitement */
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 1rem 0; /* Un peu d'espace pour l'ombre des images */
+  scrollbar-width: none; /* Cache la barre de défilement sur Firefox */
+}
+
+/* Cache la barre de défilement sur Chrome et Safari */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 auto; /* Empêche les images de s'écraser */
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  scroll-snap-align: start; /* Le point d'arrêt du glissement */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- BOUTONS DU CARROUSEL --- */
+.carousel-btn {
+  background-color: white;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.prev-btn {
+  left: -20px;
+} /* Déborde légèrement sur la gauche */
+.next-btn {
+  right: -20px;
+} /* Déborde légèrement sur la droite */
+
+/* Sur mobile, on rentre un peu les boutons pour qu'ils ne sortent pas de l'écran */
+@media (max-width: 768px) {
+  .prev-btn {
+    left: 10px;
+  }
+  .next-btn {
+    right: 10px;
+  }
+}
+
+/* --- STAGES (Cartes) --- */
+.stages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.stage-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid var(--primary-color);
+}
+
+.stage-card h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.stage-card ul {
+  list-style-type: none;
+  margin-top: 1.5rem;
+}
+
+.stage-card li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.stage-card li::before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* --- FORMULAIRE NETLIFY --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: var(--font-text);
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #6b4420;
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+/* --- GRILLE PHILOSOPHIE (4 BOX) --- */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.philo-box {
+  background-color: #e9f0e9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.philo-box:hover {
+  transform: translateY(
+    -5px
+  ); /* Petit effet de soulèvement au passage de la souris */
+}
+
+.philo-box h3 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.philo-box p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+}
+
+/* --- MODAL (LIGHTBOX) POUR AGRANDIR LES IMAGES --- */
+.modal {
+  display: none; /* Totalement caché par défaut */
+  position: fixed;
+  z-index: 2000; /* Passe par-dessus le menu qui est à 1000 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fond noir semi-transparent */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cette classe sera ajoutée par le JavaScript quand on cliquera */
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90vh; /* S'assure que l'image ne dépasse pas la hauteur de l'écran */
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  animation: zoomIn 0.3s ease; /* Petite animation d'apparition douce */
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 4rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: var(--primary-color);
+}
+
+/* On rajoute un curseur 'main' sur les petites images pour faire comprendre qu'on peut cliquer */
+.carousel-slide {
+  cursor: pointer;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+
+  nav ul {
+    display: none; /* Masqué par défaut sur mobile, géré par JS */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 2rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .split-section {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .philosophy-grid {
+    grid-template-columns: 1fr; /* Passe de 2 colonnes à 1 seule sur téléphone */
+  }
+}

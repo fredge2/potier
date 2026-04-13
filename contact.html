@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Potier de grès</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Potier de grès</div>
+      <button class="burger-menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="creation.html">Création</a></li>
+          <li><a href="potier.html">Le potier</a></li>
+          <li><a href="stages.html">Stages</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1 class="section-title">Contact</h1>
+
+      <div class="split-section">
+        <div>
+          <div style="margin-bottom: 3rem">
+            <h2 style="color: var(--primary-color)">Coordonnées</h2>
+            <p><strong>Adresse :</strong> 4 Chemin de Froidefontaine, 88530 Le Tholy</p>
+            <p><strong>Téléphone :</strong> 06 07 27 10 13</p>
+            <p><strong>Email :</strong> duquet.pascal@wanadoo.fr</p>
+          </div>
+
+          <h2 style="color: var(--primary-color)">M'envoyer un message</h2>
+          <form name="contact-general" method="POST" data-netlify="true">
+            <input type="text" name="nom" placeholder="Votre nom" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <input
+              type="text"
+              name="sujet"
+              placeholder="Sujet de votre message"
+              required
+            />
+            <textarea
+              name="message"
+              rows="6"
+              placeholder="Votre message..."
+              required
+            ></textarea>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+
+        
+      <div style="height: 100%; min-height: 400px;">
+        <h2 style="color: var(--primary-color);">Plan du site</h2>
+        
+        <iframe 
+          src="https://maps.google.com/maps?q=Duguet+Pascal,+4+Chem.+de+Froidefontaine,+88530+Le+Tholy&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="400" 
+          style="border:0; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Potier de grès - Pascal Duguet</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

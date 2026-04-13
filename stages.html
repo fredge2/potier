@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stages - Potier de grès</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Potier de grès</div>
+      <button class="burger-menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="creation.html">Création</a></li>
+          <li><a href="potier.html">Le potier</a></li>
+          <li><a href="stages.html" class="active">Stages</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1 class="section-title">Stages</h1>
+      <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem">
+        Venez vous initier à la poterie aux côtés de Pascal.
+      </p>
+
+      <div class="split-section">
+        <div style="flex: 2">
+          <div class="stages-grid">
+            <div class="stage-card">
+              <h3>Initiation</h3>
+              <ul>
+                <li>Façonnage au tour de potier</li>
+                <li>De 6 à 76 ans (4 pers max)</li>
+                <li>En demi-journée (3h) - 60€</li>
+                <li>Journée complète - 120€</li>
+                <li>Matériel compris</li>
+              </ul>
+            </div>
+
+            <div class="stage-card">
+              <h3>Stage 3 jours</h3>
+              <ul class="editable">
+                <li>Façonnage au tour + émaillage</li>
+                <li>3 personnes max</li>
+                <li>Jour 1 = Tournage</li>
+                <li>
+                  Jour 2 = Finition des pièces (anses, décor, tournassage)
+                </li>
+                <li>Jour 3 = Émaillage</li>
+                <li>
+                  <em
+                    >Attention : La 3ème journée doit être décalée de plusieurs
+                    jours en raison du séchage et de la 1ère cuisson.</em
+                  >
+                </li>
+                <li><strong>Tarif : à partir de ...</strong></li>
+              </ul>
+            </div>
+
+            <div class="stage-card">
+              <h3>Stage sur-mesure</h3>
+              <ul class="editable">
+                <li>Programme personnalisé selon vos besoins</li>
+                <li>Me contacter pour définir cela ensemble</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex: 1" class="text-box">
+          <h3>Demander une date</h3>
+          <p style="margin-bottom: 1.5rem; font-size: 0.9rem">
+            Remplissez ce formulaire pour réserver ou demander des informations.
+          </p>
+          <form name="stages-contact" method="POST" data-netlify="true">
+            <input type="text" name="nom" placeholder="Votre nom" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Votre message (précisez le stage souhaité)"
+              required
+            ></textarea>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Potier de grès - Pascal Duguet</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

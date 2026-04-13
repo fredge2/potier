@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Création - Potier de grès</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Potier de grès</div>
+      <button class="burger-menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="creation.html" class="active">Création</a></li>
+          <li><a href="potier.html">Le potier</a></li>
+          <li><a href="stages.html">Stages</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1 class="section-title">Galerie d'exposition</h1>
+      <p
+        class="editable"
+        style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto"
+      >
+        Explorez les collections à 100m² d'exposition permanente dans la
+        montagne vosgienne, avec une grande variété de pièces en grès.
+      </p>
+
+      <section>
+        <h2>Les productions</h2>
+
+        <div class="carousel-wrapper">
+          <button class="carousel-btn prev-btn">❮</button>
+
+          <div class="carousel-track editable">
+            <img
+              src="assets/Photos site internet/Productions/Pascal 134.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 1"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 136.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 2"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 141.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 3"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 245.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 4"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 262.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 5"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 166.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 5"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 164.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 5"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 250.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 5"
+            />
+            <img
+              src="assets/Photos site internet/Productions/Pascal 267.jpg"
+              class="carousel-slide"
+              alt="Pièce utilitaire 5"
+            />
+          </div>
+
+          <button class="carousel-btn next-btn">❯</button>
+        </div>
+      </section>
+
+      <section style="margin-top: 5rem">
+        <h2>Les Oya</h2>
+        <div class="split-section" style="margin-top: 2rem">
+          <div class="editable">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+              vitae.
+            </p>
+          </div>
+          <div class="image-container">
+            <img
+              src="assets/Photos site internet/Productions/20251114_144117.jpg"
+              alt="Oya dans le jardin"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top: 5rem">
+        <h2>Cuisson Anagama</h2>
+        <div
+          class="text-box editable"
+          style="margin-top: 2rem; margin-bottom: 2rem"
+        >
+          <p>
+            Une cuisson d'inspiration japonaise de longue durée (4 à 5 jours de
+            cuisson) dans un grand four à flamme directe. La grande quantité de
+            bois nécessaire à cette cuisson, laisse des traces de feu, de
+            cendres qui ajoutent à la beauté des céramiques.
+          </p>
+        </div>
+        <div class="grid-gallery">
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Anagama/Pascal 170.jpg"
+            alt="Four Anagama"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Anagama/Pascal 199.jpg"
+            alt="Flammes"
+          />
+        </div>
+      </section>
+    </main>
+
+    <div id="image-modal" class="modal">
+      <span class="close-modal">&times;</span>
+      <img class="modal-content" id="modal-img" alt="Image agrandie" />
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Potier de grès - Pascal Duguet</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
