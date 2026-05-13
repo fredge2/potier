@@ -111,6 +111,7 @@ nav a.active {
   text-align: center;
   color: white;
   padding: 0 20px;
+  object-fit : cover;
 }
 
 .hero h1 {
