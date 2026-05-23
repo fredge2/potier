@@ -102,7 +102,7 @@ nav a.active {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("assets/Photos site internet/maison_1.JPG");
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -129,7 +129,7 @@ nav a.active {
   max-width: 600px;
 }
 
-/* --- SECTIONS (Philosophie, Anagama, etc.) --- */
+/* --- SECTIONS SPÉCIFIQUES --- */
 .split-section {
   display: flex;
   align-items: center;
@@ -149,103 +149,258 @@ nav a.active {
 }
 
 .text-box {
-  background-color: #f0e9f2; /* Un beige pastel très doux et harmonieux */
-  padding: 3.5rem; /* Un peu plus d'espace intérieur pour l'aération */
-  border-radius: 15px; /* Bords arrondis pour la douceur */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); /* Une ombre très légère pour la profondeur */
+  background-color: #f0e9f2;
+  padding: 3.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
-/* --- GRILLES (Galerie) --- */
-.grid-gallery {
+/* --- NOUVELLES GRILLES PHOTO EN DEUX LIGNES (Création) --- */
+.photo-grid-two-rows {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.grid-gallery img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-/* --- CARROUSEL D'IMAGES --- */
-.carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.carousel-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory; /* Force l'image à s'aligner parfaitement */
-  scroll-behavior: smooth;
+  grid-template-columns: repeat(4, 1fr); /* 4 photos par ligne */
   gap: 1.5rem;
-  padding: 1rem 0; /* Un peu d'espace pour l'ombre des images */
-  scrollbar-width: none; /* Cache la barre de défilement sur Firefox */
+  margin-top: 2rem;
 }
 
-/* Cache la barre de défilement sur Chrome et Safari */
-.carousel-track::-webkit-scrollbar {
-  display: none;
+.gallery-thumb {
+  width: 100%;
+  height: 220px; /* Taille réduite et harmonieuse */
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.carousel-slide {
-  flex: 0 0 auto; /* Empêche les images de s'écraser */
-  width: 300px;
-  height: 300px;
+.gallery-thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(139, 90, 43, 0.2);
+}
+
+/* Encadré d'information discret sous les galeries */
+.gallery-info-box {
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.gallery-info-box p {
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+  display: inline-block;
+  padding: 0.4rem 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* --- DISPOSITION HARMONIEUSE POUR LES OYAS --- */
+.oya-images-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Une grille 2x2 parfaite pour les 4 photos */
+  gap: 1rem;
+}
+
+.oya-img-item {
+  width: 100%;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  scroll-snap-align: start; /* Le point d'arrêt du glissement */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* --- BOUTONS DU CARROUSEL --- */
-.carousel-btn {
-  background-color: white;
+/* Bouton déclencheur Popup Oya */
+.btn-popup-trigger {
+  background-color: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-popup-trigger:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* --- NOUVELLE GRILLE POUR LA CUISSON ANAGAMA --- */
+.anagama-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* --- FENÊTRE POPUP MODAL (OYAS - COMMENT ÇA FONCTIONNE) --- */
+.popup-modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-modal.show {
+  display: flex;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+.close-popup:hover {
+  color: var(--primary-color);
+}
+
+.popup-content h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.popup-body-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.popup-contact-btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.popup-contact-btn:hover {
+  background-color: #6b4420;
+}
+
+/* --- MODAL LIGHTBOX GLOBAL (AVEC CARROUSEL DIRECTIONNEL) --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-image-wrapper {
+  max-width: 80%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 6px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+#modal-caption {
+  color: white;
+  margin-top: 1rem;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.modal-nav-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 1.2rem;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  position: absolute;
-  z-index: 10;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    background 0.3s,
+    transform 0.2s;
 }
 
-.carousel-btn:hover {
-  background-color: var(--primary-color);
-  color: white;
+.modal-nav-btn:hover {
+  background: var(--primary-color);
   transform: scale(1.1);
 }
 
-.prev-btn {
-  left: -20px;
-} /* Déborde légèrement sur la gauche */
-.next-btn {
-  right: -20px;
-} /* Déborde légèrement sur la droite */
-
-/* Sur mobile, on rentre un peu les boutons pour qu'ils ne sortent pas de l'écran */
-@media (max-width: 768px) {
-  .prev-btn {
-    left: 10px;
-  }
-  .next-btn {
-    right: 10px;
-  }
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 3.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 2600;
 }
 
-/* --- STAGES (Cartes) --- */
+.close-modal:hover {
+  color: var(--primary-color);
+}
+
+/* --- STAGES & AUTRES STYLES --- */
 .stages-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -359,64 +514,6 @@ footer {
   margin-bottom: 0;
 }
 
-/* --- MODAL (LIGHTBOX) POUR AGRANDIR LES IMAGES --- */
-.modal {
-  display: none; /* Totalement caché par défaut */
-  position: fixed;
-  z-index: 2000; /* Passe par-dessus le menu qui est à 1000 */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85); /* Fond noir semi-transparent */
-  justify-content: center;
-  align-items: center;
-}
-
-/* Cette classe sera ajoutée par le JavaScript quand on cliquera */
-.modal.show {
-  display: flex;
-}
-
-.modal-content {
-  max-width: 90%;
-  max-height: 90vh; /* S'assure que l'image ne dépasse pas la hauteur de l'écran */
-  border-radius: 8px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-  animation: zoomIn 0.3s ease; /* Petite animation d'apparition douce */
-}
-
-@keyframes zoomIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: white;
-  font-size: 4rem;
-  font-weight: 300;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.close-modal:hover {
-  color: var(--primary-color);
-}
-
-/* On rajoute un curseur 'main' sur les petites images pour faire comprendre qu'on peut cliquer */
-.carousel-slide {
-  cursor: pointer;
-}
-
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
   .burger-menu {
@@ -424,7 +521,7 @@ footer {
   }
 
   nav ul {
-    display: none; /* Masqué par défaut sur mobile, géré par JS */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -443,10 +540,22 @@ footer {
     flex-direction: column;
   }
 
-  .hero h1 {
-    font-size: 2.5rem;
+  .photo-grid-two-rows,
+  .anagama-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 photos par ligne sur mobile */
   }
+
+  .oya-images-layout {
+    grid-template-columns: 1fr; /* 1 photo par ligne sur téléphone */
+  }
+
   .philosophy-grid {
-    grid-template-columns: 1fr; /* Passe de 2 colonnes à 1 seule sur téléphone */
+    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+  }
+
+  .modal-nav-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
   }
 }
