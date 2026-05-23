@@ -559,3 +559,22 @@ footer {
     font-size: 1.5rem;
   }
 }
+
+/* Styles pour la vidéo */
+.video-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.02);
+}
+
+/* S'assure que le bouton play ne bloque pas le clic */
+.play-button {
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.video-wrapper:hover .play-button {
+  background: rgba(255, 0, 0, 1);
+}
