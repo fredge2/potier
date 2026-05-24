@@ -101,7 +101,7 @@ nav a.active {
   height: 80vh;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("assets/Photos site internet/maison_1.JPG");
+    url("assets/Photos site internet/maison_1_resultat.webp");
   background-size: cover;
   background-position: center;
   display: flex;

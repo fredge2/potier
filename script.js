@@ -58,3 +58,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// --- BOUTON "VOIR TOUTES LES PRODUCTIONS" ---
+const fullGalleryBtn = document.getElementById("full-gallery-btn");
+if (fullGalleryBtn) {
+  fullGalleryBtn.addEventListener("click", () => {
+    // Récupère toutes les images du bloc caché
+    const hiddenImages = Array.from(
+      document.querySelectorAll("#full-prod-data img"),
+    );
+    if (hiddenImages.length > 0) {
+      currentGalleryImages = hiddenImages; // Charge ces images dans le carrousel
+      currentImageIndex = 0; // Commence à la première image
+      openModal(); // Ouvre le plein écran
+    }
+  });
+}
