@@ -101,7 +101,7 @@ nav a.active {
   height: 80vh;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("assets/Photos site internet/maison_1_resultat.webp");
+    url("assets/Photos site internet/maison_1.JPG");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -212,7 +212,7 @@ nav a.active {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Bouton déclencheur Popup Oya */
+/* --- BOUTONS : Popup Oya et "Voir toutes les photos" --- */
 .btn-popup-trigger {
   background-color: transparent;
   border: 2px solid var(--primary-color);

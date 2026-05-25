@@ -78,15 +78,45 @@
         <div class="gallery-info-box">
           <p>cliquez sur une image pour agrandir et accéder au carrousel</p>
         </div>
+
         <div style="text-align: center; margin-top: 2rem">
-          <button id="full-gallery-btn" class="btn-popup-trigger">
+          <button id="btn-all-productions" class="btn-popup-trigger">
             Voir toutes les productions
           </button>
         </div>
 
-        <div style="display: none" id="full-prod-data" class="editable">
+        <div id="data-all-productions" style="display: none" class="editable">
           <img
             src="assets/Photos site internet/Productions/Pascal 134_resultat.webp"
+            alt="Pièce 1"
+          />
+          <img
+            src="assets/Photos site internet/Productions/Pascal 136_resultat.webp"
+            alt="Pièce 2"
+          />
+          <img
+            src="assets/Photos site internet/Productions/Pascal 141_resultat.webp"
+            alt="Pièce 3"
+          />
+          <img
+            src="assets/Photos site internet/Productions/Pascal 245_resultat.webp"
+            alt="Pièce 4"
+          />
+          <img
+            src="assets/Photos site internet/Productions/Pascal 262_resultat.webp"
+            alt="Pièce 5"
+          />
+          <img
+            src="assets/Photos site internet/Productions/Pascal 166_resultat.webp"
+            alt="Pièce 6"
+          />
+          <img
+            src="assets/Photos site internet/Productions/Pascal 164_resultat.webp"
+            alt="Pièce 7"
+          />
+          <img
+            src="assets/Photos site internet/Productions/Pascal 250_resultat.webp"
+            alt="Pièce 8"
           />
         </div>
       </section>
@@ -137,6 +167,47 @@
         </div>
         <div class="gallery-info-box">
           <p>cliquez sur une image pour agrandir et accéder au carrousel</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem">
+          <button id="btn-all-exposition" class="btn-popup-trigger">
+            Voir toute la galerie d'exposition
+          </button>
+        </div>
+
+        <div id="data-all-exposition" style="display: none" class="editable">
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 083_resultat.webp"
+            alt="Expo 1"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 086_resultat.webp"
+            alt="Expo 2"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 088_resultat.webp"
+            alt="Expo 3"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 093_resultat.webp"
+            alt="Expo 4"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 095_resultat.webp"
+            alt="Expo 5"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 097_resultat.webp"
+            alt="Expo 6"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 100_resultat.webp"
+            alt="Expo 7"
+          />
+          <img
+            src="assets/Photos site internet/Galerie-Expo/Pascal 101_resultat.webp"
+            alt="Expo 8"
+          />
         </div>
       </section>
 
@@ -259,6 +330,31 @@
         <div class="gallery-info-box">
           <p>cliquez sur une image pour agrandir et accéder au carrousel</p>
         </div>
+
+        <div style="text-align: center; margin-top: 2rem">
+          <button id="btn-all-anagama" class="btn-popup-trigger">
+            Voir toutes les cuissons Anagama
+          </button>
+        </div>
+
+        <div id="data-all-anagama" style="display: none" class="editable">
+          <img
+            src="assets/Photos site internet/Anagama/Pascal 170_resultat.webp"
+            alt="Anagama 1"
+          />
+          <img
+            src="assets/Photos site internet/Anagama/Pascal 206_resultat.webp"
+            alt="Anagama 2"
+          />
+          <img
+            src="assets/Photos site internet/Anagama/Pascal 184_resultat.webp"
+            alt="Anagama 3"
+          />
+          <img
+            src="assets/Photos site internet/Anagama/Pascal 199_resultat.webp"
+            alt="Anagama 4"
+          />
+        </div>
       </section>
     </main>
 
@@ -326,132 +422,6 @@
       <p>&copy; 2026 Potier de grès - Pascal Duguet</p>
     </footer>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // --- 1. GESTION DU MENU MOBILE ---
-        const burgerMenu = document.querySelector(".burger-menu");
-        const navMenu = document.querySelector("nav ul");
-        if (burgerMenu) {
-          burgerMenu.addEventListener("click", () => {
-            navMenu.classList.toggle("show");
-          });
-        }
-
-        // --- 2. LIGHTBOX GENERALE AVEC CARROUSEL INTERNE ---
-        const modal = document.getElementById("image-modal");
-        const modalImg = document.getElementById("modal-img");
-        const modalCaption = document.getElementById("modal-caption");
-        const closeModalBtn = document.querySelector(".close-modal");
-        const prevBtn = document.querySelector(".prev-modal-btn");
-        const nextBtn = document.querySelector(".next-modal-btn");
-
-        let currentGalleryImages = [];
-        let currentImageIndex = 0;
-
-        // Associer le clic sur toutes les miniatures de galeries
-        document
-          .querySelectorAll("[data-gallery]")
-          .forEach((galleryContainer) => {
-            const images = Array.from(galleryContainer.querySelectorAll("img"));
-            images.forEach((img, index) => {
-              img.style.cursor = "pointer";
-              img.addEventListener("click", () => {
-                currentGalleryImages = images;
-                currentImageIndex = index;
-                openModal();
-              });
-            });
-          });
-
-        function openModal() {
-          if (currentGalleryImages.length > 0) {
-            const targetImg = currentGalleryImages[currentImageIndex];
-            modalImg.src = targetImg.src;
-            modalCaption.textContent =
-              targetImg.alt || `Image ${currentImageIndex + 1}`;
-            modal.classList.add("show");
-          }
-        }
-
-        function nextImage() {
-          if (currentGalleryImages.length > 0) {
-            currentImageIndex =
-              (currentImageIndex + 1) % currentGalleryImages.length;
-            openModal();
-          }
-        }
-
-        function prevImage() {
-          if (currentGalleryImages.length > 0) {
-            currentImageIndex =
-              (currentImageIndex - 1 + currentGalleryImages.length) %
-              currentGalleryImages.length;
-            openModal();
-          }
-        }
-
-        if (nextBtn)
-          nextBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            nextImage();
-          });
-        if (prevBtn)
-          prevBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            prevImage();
-          });
-
-        if (closeModalBtn) {
-          closeModalBtn.addEventListener("click", () => {
-            modal.classList.remove("show");
-          });
-        }
-
-        if (modal) {
-          modal.addEventListener("click", (e) => {
-            if (
-              e.target === modal ||
-              e.target.classList.contains("modal-image-wrapper")
-            ) {
-              modal.classList.remove("show");
-            }
-          });
-        }
-
-        // Navigation clavier pour la lightbox
-        document.addEventListener("keydown", (e) => {
-          if (modal && modal.classList.contains("show")) {
-            if (e.key === "ArrowRight") nextImage();
-            if (e.key === "ArrowLeft") prevImage();
-            if (e.key === "Escape") modal.classList.remove("show");
-          }
-        });
-
-        // --- 3. POPUP MODAL COMMENT ÇA FONCTIONNE (OYAS) ---
-        const oyaModal = document.getElementById("oya-popup-modal");
-        const openOyaBtn = document.getElementById("open-oya-popup");
-        const closeOyaBtn = document.querySelector(".close-popup");
-
-        if (openOyaBtn && oyaModal) {
-          openOyaBtn.addEventListener("click", () => {
-            oyaModal.classList.add("show");
-          });
-        }
-
-        if (closeOyaBtn && oyaModal) {
-          closeOyaBtn.addEventListener("click", () => {
-            oyaModal.classList.remove("show");
-          });
-        }
-
-        if (oyaModal) {
-          oyaModal.addEventListener("click", (e) => {
-            if (e.target === oyaModal) {
-              oyaModal.classList.remove("show");
-            }
-          });
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
