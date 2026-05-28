@@ -33,29 +33,21 @@
             <p><strong>Email :</strong> duguet.pascal@wanadoo.fr</p>
           </div>
 
-          <h2 style="color: var(--primary-color)">M'envoyer un message</h2>
-         <form name="contact-general" method="POST" data-netlify="true" action="/">
-            <input type="text" name="nom" placeholder="Votre nom" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              required
-            />
-            <input
-              type="text"
-              name="sujet"
-              placeholder="Sujet de votre message"
-              required
-            />
-            <textarea
-              name="message"
-              rows="6"
-              placeholder="Votre message..."
-              required
-            ></textarea>
-            <button type="submit">Envoyer</button>
-          </form>
+         <h2 class="contact-title">M'envoyer un message</h2>
+
+<form name="contact-general" method="POST" data-netlify="true" action="/" netlify-honeypot="bot-field">
+
+  <p class="hidden-honeypot">
+    <label>Ne remplissez pas ce champ si vous êtes humain : <input name="bot-field" /></label>
+  </p>
+
+  <input type="text" name="nom" placeholder="Votre nom" required maxlength="100" />
+  <input type="email" name="email" placeholder="Votre courriel" required maxlength="150" />
+  <textarea name="message" placeholder="Votre message" required maxlength="2000" rows="6"></textarea>
+
+  <button type="submit">Envoyer</button>
+
+</form>
         </div>
 
         

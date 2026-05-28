@@ -76,29 +76,60 @@
           <p style="margin-bottom: 1.5rem; font-size: 0.9rem">
             Remplissez ce formulaire pour réserver ou demander des informations.
           </p>
+
           <form
-            name="stages-contact"
+            name="contact-stage"
             method="POST"
             data-netlify="true"
             action="/"
+            netlify-honeypot="bot-field"
           >
-            <input type="text" name="nom" placeholder="Votre nom" required />
+            <p class="hidden-honeypot">
+              <label
+                >Ne remplissez pas ce champ si vous êtes humain :
+                <input name="bot-field"
+              /></label>
+            </p>
+
+            <input
+              type="text"
+              name="nom"
+              placeholder="Votre nom et prénom"
+              required
+              maxlength="100"
+            />
 
             <input
               type="email"
               name="email"
-              placeholder="Votre email"
+              placeholder="Votre courriel"
               required
+              maxlength="150"
+            />
+
+            <input
+              type="tel"
+              name="telephone"
+              placeholder="Votre numéro de téléphone"
+              maxlength="20"
+            />
+
+            <input
+              type="text"
+              name="stage_choisi"
+              placeholder="Quel stage vous intéresse ? (ex: Tournage week-end)"
+              maxlength="100"
             />
 
             <textarea
               name="message"
-              rows="5"
-              placeholder="Votre message (précisez le stage souhaité)"
+              placeholder="Votre message ou vos questions..."
               required
+              maxlength="2000"
+              rows="6"
             ></textarea>
 
-            <button type="submit">Envoyer</button>
+            <button type="submit">Envoyer ma demande</button>
           </form>
         </div>
       </div>

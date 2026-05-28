@@ -213,17 +213,40 @@ nav a.active {
 }
 
 /* --- BOUTONS : Popup Oya et "Voir toutes les photos" --- */
+/* --- BOUTONS DYNAMIQUES ("Voir toutes les photos", "Popup Oya") --- */
 .btn-popup-trigger {
   background-color: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 1.8rem;
   font-family: var(--font-text);
-  font-weight: 500;
+  font-weight: 600; /* Un peu plus gras pour mieux ressortir */
   font-size: 0.95rem;
-  border-radius: 4px;
+  border-radius: 6px; /* Bords très légèrement plus arrondis */
   cursor: pointer;
-  transition: all 0.3s ease;
+
+  /* L'astuce est ici : une transition avec un léger effet d'élasticité */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* L'effet quand la souris passe sur le bouton */
+.btn-popup-trigger:hover {
+  background-color: var(--primary-color);
+  color: white;
+
+  /* 1. Le bouton lévite vers le haut */
+  transform: translateY(-4px);
+
+  /* 2. Une belle ombre marron/grès apparaît en dessous */
+  box-shadow: 0 8px 20px rgba(139, 90, 43, 0.35);
+}
+
+/* L'effet exact au moment où l'on clique */
+.btn-popup-trigger:active {
+  /* Le bouton s'enfonce physiquement */
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(139, 90, 43, 0.2);
 }
 
 .btn-popup-trigger:hover {
@@ -577,4 +600,16 @@ footer {
 
 .video-wrapper:hover .play-button {
   background: rgba(255, 0, 0, 1);
+}
+/* --- SÉCURITÉ FORMULAIRE --- */
+
+/* Cacher le pot de miel anti-robot aux vrais visiteurs */
+.hidden-honeypot {
+  display: none;
+}
+
+/* Couleur du titre du formulaire */
+.contact-title {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
 }

@@ -1,0 +1,33 @@
+<h2 style="color: var(--primary-color)">M'envoyer un message</h2>
+<form name="contact-general" method="POST" data-netlify="true" action="/">
+  <input type="text" name="nom" placeholder="Votre nom" required />
+  <input type="email" name="email" placeholder="Votre email" required />
+  <input
+    type="text"
+    name="sujet"
+    placeholder="Sujet de votre message"
+    required
+  />
+  <textarea
+    name="message"
+    rows="6"
+    placeholder="Votre message..."
+    required
+  ></textarea>
+  <button type="submit">Envoyer</button>
+</form>
+
+<form name="stages-contact" method="POST" data-netlify="true" action="/">
+  <input type="text" name="nom" placeholder="Votre nom" required />
+
+  <input type="email" name="email" placeholder="Votre email" required />
+
+  <textarea
+    name="message"
+    rows="5"
+    placeholder="Votre message (précisez le stage souhaité)"
+    required
+  ></textarea>
+
+  <button type="submit">Envoyer</button>
+</form>
