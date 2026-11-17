@@ -613,3 +613,15 @@ footer {
   color: var(--primary-color);
   margin-bottom: 1.5rem;
 }
+
+.lien-fg {
+  color: #e09f5a; /* Teinte ambrée/terre cuite qui ressort bien sur fond sombre */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.lien-fg:hover {
+  color: #f3be82;
+  text-decoration: underline;
+}
